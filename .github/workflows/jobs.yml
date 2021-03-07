@@ -1,0 +1,16 @@
+name: Jobs
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'  # every day at midnight
+
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    name: Jobs
+    steps:
+      - name: Pastock example
+        uses: docker://ghcr.io/ganhuaking/pastock
+        with:
+          args: stock:now
